@@ -112,7 +112,17 @@ void setup(){
     request -> send_P(200, "text/plain", readBlueButton().c_str());
     });
 
+   server.on("/greenbutton", HTTP_GET,[](AsyncWebServerRequest *request){
+    request -> send_P(200, "text/plain", readGreenButton().c_str());
+    });
 
+   server.on("/yellowbutton", HTTP_GET,[](AsyncWebServerRequest *request){
+    request -> send_P(200, "text/plain", readYellowButton().c_str());
+    });
+    
+     server.on("/redbutton", HTTP_GET,[](AsyncWebServerRequest *request){
+    request -> send_P(200, "text/plain", readRedButton().c_str());
+    });
       
   // Start server
   server.begin();
